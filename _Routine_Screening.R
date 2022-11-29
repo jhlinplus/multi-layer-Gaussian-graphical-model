@@ -28,7 +28,7 @@ ScreeningFunc = function(Ymat,Xmat,alpha=0.1,adjust=TRUE,method="BH")
 	}
 	
 	p.val = array(0,c(p1,p2))
-	output.list_prior = foreach(j = 1:p2) %dopar%
+	output.list_prior = foreach(j = 1:p2, .export = c('SSLasso', 'adjust', 'Lasso', 'slim', 'NoiseSd', 'InverseLinfty', 'InverseLinftyOneRow', 'SoftThreshold')) %dopar%
     {
 			f = SSLasso(Xmat,Ymat[,j],verbose=FALSE,intercept=FALSE);
 			p.val_j = f$pvals;

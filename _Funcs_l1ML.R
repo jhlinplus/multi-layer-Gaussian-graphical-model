@@ -131,7 +131,7 @@ l1ML_Main = function(Y,X,lambda=NULL,rho=NULL,initializer="Lasso",screening=T,al
         B_old = B_new; Theta_old = Theta_new;
         
         # update B
-        output.list_B = foreach (j=1:p2)%dopar%
+        output.list_B = foreach (j=1:p2, .export = c('glmnet'))%dopar%
         {
             B_j = rep(0,p1);
             if (length(which(Existing.edges[,j]!=0))==0){
