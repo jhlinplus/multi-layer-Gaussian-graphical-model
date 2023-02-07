@@ -63,7 +63,7 @@ l1LS_Main = function(Y,X,lambda=NULL,rho=NULL,initializer="Lasso",skeleton=NULL)
 	# estimate through Lasso or Ridge
 	if (initializer=="Lasso")
 	{
-		output.list_LS = foreach(j=1:p2) %dopar% 
+		output.list_LS = foreach(j=1:p2, .export = c('glmnet')) %dopar% 
 		{
 			B_j = rep(0,p1);
 			if (length(which(Existing.edges[,j]!=0))==0)
