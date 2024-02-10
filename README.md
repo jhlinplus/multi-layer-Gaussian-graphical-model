@@ -20,4 +20,4 @@ For the time being, we provide `R` implementation of the proposed methodology, w
 
 ### Notes
 
-I personally found that R env has become a bit difficult to use from a maintainance standpoint (e.g., pkgs no longer being supported by a newer R version), and I plan to roll out a `Python` version of the algorithm when I find the time. 
+I personally found that R env has become a bit difficult to use from a maintainance standpoint (e.g., pkgs no longer being supported by a newer R version), and I plan to roll out a `Python` version of the algorithm if and only if I find the time, although this may sacrifice some of the options, as certain dependency (e.g., the estimation of a sqrt Lasso) may not necessarily be available. 

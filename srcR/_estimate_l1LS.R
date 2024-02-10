@@ -22,7 +22,7 @@ if (length(new)){
 }
 sapply(pkgs, require, character.only = TRUE);
 
-source("_routine_Screening.R");
+source("srcR/_routine_Screening.R");
 
 l1LS_main = function(Y,X,lambda=NULL,rho=NULL,initializer="Lasso",skeleton=NULL)
 {

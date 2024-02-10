@@ -1,4 +1,4 @@
-Eval_sparse = function(true,est,directed=FALSE)
+eval_sparse = function(true,est,directed=FALSE)
 {
     if (directed==FALSE)
     {

@@ -28,9 +28,9 @@ sapply(pkgs, require, character.only = TRUE);
 registerDoParallel(cores=detectCores(all.tests = FALSE, logical = TRUE)-1);
 cat(sprintf("Total number of workers = %d.\n",getDoParWorkers()));
 
-source("_estimate_l1LS.R");
-source("_routine_StabilitySelection.R");
-source("_routine_Aux.R");
+source("srcR/_estimate_l1LS.R");
+source("srcR/_routine_StabilitySelection.R");
+source("srcR/_routine_Aux.R");
 
 l1ML_main = function(Y,X,lambda=NULL,rho=NULL,initializer="Lasso",screening=T,alpha=0.1,method.correction="BH",ss=T,method.ss="glasso",rho.ss=NULL,nboot=50,VERBOSE=FALSE,iter_max=100,manualbreak=50)
 {
