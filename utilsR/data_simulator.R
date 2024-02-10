@@ -3,7 +3,7 @@
 # "Penalized Maximum Likelihood Estimation of Multi-layered Gaussian Graphical Models"
 # J.Lin; S.Basu; M.Banerjee; G.Michailidis; 2016 JMLR
 #
-# Last modified on 07/28/2019 by JL
+# Last modified on 02/10/2024 by JL
 # *******************************************
 
 pkgs = c("matrixcalc","MASS","gdata");
@@ -18,7 +18,7 @@ sapply(pkgs, require, character.only = TRUE);
 
 # generates a p*q regression coefficient matrix for model y = B'x + e
 # where y is q times 1, B is p times q, x is p times 1
-GenMat_Coef = function(p,q,sparsity=NULL,mg_low,mg_high){
+gen_sparse_coef_mtx = function(p,q,sparsity=NULL,mg_low,mg_high){
     
 	# p regressors, q regressions
     # default sparsity is 5/p
@@ -33,8 +33,8 @@ GenMat_Coef = function(p,q,sparsity=NULL,mg_low,mg_high){
 	return(B)
 }
 
-# GenMat_invcov() generates an inverse covariance matrix
-GenMat_invcov = function(q,sparsity = NULL,type = 'random',target_condition_number = 5,mg_high = 1, mg_low = 0.5)
+# generates a sparse inverse covariance matrix
+gen_sparse_inv_cov = function(q,sparsity = NULL,type = 'random',target_condition_number = 5,mg_high = 1, mg_low = 0.5)
 {
     Omega = array(0,c(q,q));
     diag(Omega) = 0;
@@ -97,7 +97,7 @@ GenMat_invcov = function(q,sparsity = NULL,type = 'random',target_condition_numb
     return(Omega)
 }
 
-GenData_2layer = function(n,InvCov_X=NULL,B,InvCov_E,standardize_cov=TRUE,target_SNR=NULL){
+generate_data_2layerGGM = function(n,InvCov_X=NULL,B,InvCov_E,standardize_cov=TRUE,target_SNR=NULL){
     
     ## generate a model of the following form:
     ## Y = XB + E;
