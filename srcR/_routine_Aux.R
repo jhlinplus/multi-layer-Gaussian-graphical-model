@@ -1,5 +1,5 @@
 # ************************************
-# Description: collections of routines that are necessary for l1ML_Main();
+# Description: collections of routines that are necessary for l1ML_main();
 #
 # File type: Script for routines; 
 # Routines: 

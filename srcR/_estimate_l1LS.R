@@ -22,9 +22,9 @@ if (length(new)){
 }
 sapply(pkgs, require, character.only = TRUE);
 
-source("_Routine_Screening.R");
+source("_routine_Screening.R");
 
-l1LS_Main = function(Y,X,lambda=NULL,rho=NULL,initializer="Lasso",skeleton=NULL)
+l1LS_main = function(Y,X,lambda=NULL,rho=NULL,initializer="Lasso",skeleton=NULL)
 {
 	# Argsv:
 	# (data) Y: response matrix, n by p2;

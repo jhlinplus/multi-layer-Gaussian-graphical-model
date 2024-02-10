@@ -28,11 +28,11 @@ sapply(pkgs, require, character.only = TRUE);
 registerDoParallel(cores=detectCores(all.tests = FALSE, logical = TRUE)-1);
 cat(sprintf("Total number of workers = %d.\n",getDoParWorkers()));
 
-source("_Funcs_l1LS.R");
-source("_Routine_StabilitySelection.R");
-source("_Routine_Aux.R");
+source("_estimate_l1LS.R");
+source("_routine_StabilitySelection.R");
+source("_routine_Aux.R");
 
-l1ML_Main = function(Y,X,lambda=NULL,rho=NULL,initializer="Lasso",screening=T,alpha=0.1,method.correction="BH",ss=T,method.ss="glasso",rho.ss=NULL,nboot=50,VERBOSE=FALSE,iter_max=100,manualbreak=50)
+l1ML_main = function(Y,X,lambda=NULL,rho=NULL,initializer="Lasso",screening=T,alpha=0.1,method.correction="BH",ss=T,method.ss="glasso",rho.ss=NULL,nboot=50,VERBOSE=FALSE,iter_max=100,manualbreak=50)
 {
     # Args:
     # (data) Y: data in layer 2, n by p2;
@@ -89,7 +89,7 @@ l1ML_Main = function(Y,X,lambda=NULL,rho=NULL,initializer="Lasso",screening=T,al
     ### Initialization
     ######################
     cat("Step 1: Penalized LS initialization with",initializer,".\n");
-    LS = l1LS_Main(Y,X,lambda=NULL,rho=NULL,initializer=initializer,skeleton=skeleton);
+    LS = l1LS_main(Y,X,lambda=NULL,rho=NULL,initializer=initializer,skeleton=skeleton);
     B.initial = LS$B0; Theta.initial = LS$Theta0;
     
     ###############################

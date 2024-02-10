@@ -6,7 +6,7 @@
 # Last modified on 02/01/2017
 # *******************************************
 
-source("_Funcs_SSLasso.R");
+source("_estimate_SSLasso.R");
 
 ScreeningFunc = function(Ymat,Xmat,alpha=0.1,adjust=TRUE,method="BH")
 {
